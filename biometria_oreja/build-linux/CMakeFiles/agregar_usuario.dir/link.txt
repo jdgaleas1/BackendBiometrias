@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/agregar_usuario.dir/apps/gestor_usuarios/agregar_usuario.cpp.o -o agregar_usuario  liboreja_admin.a liboreja_train.a liboreja_core.a /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a -lpthread 

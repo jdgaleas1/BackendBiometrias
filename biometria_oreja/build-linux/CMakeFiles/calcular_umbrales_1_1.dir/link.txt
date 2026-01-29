@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/calcular_umbrales_1_1.dir/apps/entrenamiento/calcular_umbrales_1_1.cpp.o -o calcular_umbrales_1_1  liboreja_train.a liboreja_core.a /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a -lpthread 

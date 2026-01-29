@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/predecir.dir/apps/produccion/predecir.cpp.o -o predecir  liboreja_core.a /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a -lpthread 

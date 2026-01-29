@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/procesar_dataset.dir/apps/entrenamiento/procesar_dataset.cpp.o -o procesar_dataset  liboreja_train.a liboreja_core.a /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a -lpthread 

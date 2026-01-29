@@ -1,0 +1,2 @@
+/usr/bin/ar qc liboreja_admin.a CMakeFiles/oreja_admin.dir/src/admin/admin_config.cpp.o CMakeFiles/oreja_admin.dir/src/admin/admin_log_helpers.cpp.o CMakeFiles/oreja_admin.dir/src/admin/admin_report.cpp.o CMakeFiles/oreja_admin.dir/src/admin/admin_time.cpp.o
+/usr/bin/ranlib liboreja_admin.a

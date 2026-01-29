@@ -1,0 +1,14 @@
+nombre,fase,tiempo_s,cpu_s,cpu_pct,ram_max_kb
+worker_10,clahe,1.57184,16.9688,1079.55,75100
+worker_10,fin,9.8e-06,0,0,75100
+worker_10,inicio,6.5e-06,0,0,11552
+worker_10,recorte,0.417085,3.45312,827.92,75100
+worker_10,bilateral,676.595,7209.66,1065.58,75100
+worker_10,cargar_imagen,0.950624,9.34375,982.907,75100
+worker_10,gris,1.23955,13.0781,1055.07,75100
+worker_10,iluminacion,6.7923,74.1406,1091.54,75100
+worker_10,mascara,4.54373,49.375,1086.66,75100
+worker_10,resize,0.235384,2.9375,1247.96,75100
+worker_10,lbp_base,0.0253635,0.21875,862.46,75100
+worker_10,aumento,0.14341,2.26562,1579.82,75100
+worker_10,lbp_aumentadas,0.334874,4.04688,1208.48,75100

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/evaluar_metricas_tecnicas.dir/apps/analisis/evaluar_metricas_tecnicas.cpp.o -o evaluar_metricas_tecnicas  liboreja_train.a liboreja_core.a /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a -lpthread 

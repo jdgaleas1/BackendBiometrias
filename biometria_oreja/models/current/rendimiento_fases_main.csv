@@ -1,0 +1,8 @@
+nombre,fase,tiempo_s,cpu_s,cpu_pct,ram_max_kb
+Procesar_Dataset,normalizacion,0.0080516,0.015625,194.061,103288
+Procesar_Dataset,cargar_rutas,0.0317964,0.03125,98.2816,6956
+Procesar_Dataset,pool_procesamiento,692.917,7385.61,1065.87,75100
+Procesar_Dataset,guardar_csvs,13.6074,13.5781,99.7848,103288
+Procesar_Dataset,pca_fit,557.533,553.75,99.3214,103288
+Procesar_Dataset,pca_transform,4.39151,4.39062,99.9799,103288
+Procesar_Dataset,fin,1.61e-05,0,0,103288

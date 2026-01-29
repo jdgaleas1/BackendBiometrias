@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/reentrenar_svm.dir/apps/gestor_usuarios/reentrenar_svm_incremental.cpp.o -o reentrenar_svm  liboreja_admin.a liboreja_train.a liboreja_core.a /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a -lpthread 

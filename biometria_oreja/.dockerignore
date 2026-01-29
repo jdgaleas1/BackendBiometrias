@@ -1,0 +1,17 @@
+build-linux/
+**/build*/
+.git/
+.gitignore
+*.o
+*.a
+*.so
+*.d
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+out/*.csv
+out/*.txt
+out/log_*.txt
+**/*Zone.Identifier
+nuevo_usuario/
