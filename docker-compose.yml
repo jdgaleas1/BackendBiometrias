@@ -1,0 +1,98 @@
+sservices:
+  # BASE DE DATOS PostgreSQL
+  db:
+    image: postgres:15
+    container_name: biometria_db
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5433:5432"
+    environment:
+      POSTGRES_USER: biometria
+      POSTGRES_PASSWORD: biometria123
+      POSTGRES_DB: usuarios_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./biometria_db/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    networks:
+      - biometria_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U biometria -d usuarios_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  # API REST (PostgREST)
+  postgrest:
+    image: postgrest/postgrest
+    container_name: biometria_api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3001:3000"
+    environment:
+      PGRST_DB_URI: postgres://biometria:biometria123@db:5432/usuarios_db
+      PGRST_DB_ANON_ROLE: web_anon
+      PGRST_DB_SCHEMAS: public
+    networks:
+      - biometria_network
+
+  # BIOMETRIA DE OREJA (Puerto 8085)
+  oreja_backend:
+    build:
+      context: ./biometria_oreja
+      dockerfile: Dockerfile
+    container_name: biometria_oreja
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8085"
+    environment:
+      POSTGREST_URL: http://postgrest:3000
+      DATABASE_URL: postgres://biometria:biometria123@db:5432/usuarios_db
+
+    #  docker run
+      TMP_DIR: /tmp/biometria_oreja
+      MODEL_DIR: /app/out
+      AUDIT_MODE: "1"
+      LOG_DETAIL: "2"
+
+    # (opcional) puedes dejarlo, pero probablemente lo pisa internamente
+      WORK_DIR: /app/nuevo_usuario
+    volumes:
+      - ./biometria_oreja/models/v3:/app/out
+      - ./biometria_oreja/nuevo_usuario:/app/nuevo_usuario
+    networks:
+      - biometria_network
+
+  # BIOMETRIA DE VOZ (Puerto 8081)
+  voz_backend:
+    build:
+      context: ./biometria_voz
+      dockerfile: Dockerfile
+    container_name: biometria_voz
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8081:8081"
+    environment:
+      POSTGREST_URL: http://postgrest:3000
+      DATABASE_URL: postgres://biometria:biometria123@db:5432/usuarios_db
+    volumes:
+      - ./biometria_voz/models/v1:/app/model
+      - ./biometria_voz/caracteristicas/v1:/app/processed_dataset_bin
+    networks:
+      - biometria_network
+
+# REDES Y VOLUMENES
+networks:
+  biometria_network:
+    driver: bridge
+
+volumes:
+  db_data:
